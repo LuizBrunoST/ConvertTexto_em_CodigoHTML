@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Converter texto em código HTML ASCII</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body class="w3-light-gray">
+<header class="w3-bar w3-black">
+    <div class="w3-center">
+        <h1 style="text-shadow:0px 1px 0px #00dfff;">Converter texto em código HTML ASCII</h1>
+    </div>
+</header>
+    
+
+    <div class="w3-card-4">
+        <div class="w3-card w3-light-gray w3-padding">
+            <textarea class="w3-input w3-round" id="input" style="resize:vertical; height:230px;">Seu Texto</textarea>
+        </div>
+        <div class="w3-card w3-light-gray w3-padding">
+            <textarea class="w3-input w3-green w3-round" id="output" style="resize:vertical; border:none; height:230px;"></textarea>
+        </div>
+        
+        <button class="w3-button w3-round" onclick="copiar()">Copiar</button>
+    </div>
+
+<script>
+//Script
+onload = main
+var input, output
+
+function main(){
+    input = document.getElementById("input")
+    output = document.getElementById("output")
+
+    input.addEventListener("keyup", charsToAsciiCode, false)
+
+    function charsToAsciiCode(){
+        texto = input.value
+        output.value = texto.split('').map(function(c){
+            return '&#' + c.charCodeAt(0) + ';'
+        }).join('')
+    }
+    charsToAsciiCode()
+}
+//############## Copiar ##############//
+
+</script>
+</body>
+</html>
